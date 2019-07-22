@@ -7,10 +7,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [ AppComponent ],
-  imports: [ BrowserModule, FontAwesomeModule, AppRoutingModule ],
+  imports: [ BrowserModule, FontAwesomeModule, AppRoutingModule, ContactModule.forRoot() ],
   providers: [],
   bootstrap: [ AppComponent ]
 })
