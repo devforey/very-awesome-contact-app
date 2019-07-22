@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -11,7 +12,13 @@ import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [ AppComponent ],
-  imports: [ BrowserModule, FontAwesomeModule, AppRoutingModule, ContactModule.forRoot() ],
+  imports: [
+    BrowserModule,
+    FontAwesomeModule,
+    AppRoutingModule,
+    ContactModule.forRoot(),
+    NgxWebstorageModule.forRoot()
+  ],
   providers: [],
   bootstrap: [ AppComponent ]
 })
