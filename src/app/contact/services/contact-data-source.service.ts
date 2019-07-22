@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 
 import { Contact } from '../types/contact.type';
-import { LocalStorage } from 'ngx-webstorage';
+import { LocalStorage, LocalStorageService } from 'ngx-webstorage';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactDataSourceService {
-  @LocalStorage('contact_by_id') private contactById: { [id: string]: Contact } = {};
+  public static LOCAL_KEY_CONTACTS = 'contact_by_id';
+
+  @LocalStorage(ContactDataSourceService.LOCAL_KEY_CONTACTS) private contactById: { [id: string]: Contact };
+
+  public constructor(private localStorageService: LocalStorageService) {}
+
+  public data(): Observable<{ [id: string]: Contact }> {
+    return this.localStorageService.observe(ContactDataSourceService.LOCAL_KEY_CONTACTS);
+  }
 
   public create({ name, phoneNumber, email }): Contact {
     const toCreate: Contact = { name, phoneNumber, email, id: this.createId() };
