@@ -37,21 +37,27 @@ export class ContactDataSourceService {
     this.contactById = contactById;
   }
 
-  public async edit(contact: Contact): Promise<Contact> {
-    return {} as Contact;
+  public edit(contact: Contact): Contact {
+    const editedContacts: { [id: string]: Contact } = { ...this.contactById, [contact.id]: contact };
+    this.save(editedContacts);
+    return contact;
   }
 
-  public async delete(id: string): Promise<void> {}
+  public async delete(id: string) {
+    const result: { [id: string]: Contact } = { ...this.contactById };
+    delete result[id];
+    this.save(result);
+  }
 
   public async search(query: string): Promise<Contact[]> {
     return [ {} as Contact ];
   }
 
-  public async getOne(id: string): Promise<Contact> {
-    return {} as Contact;
+  public getOne(id: string): Contact {
+    return this.contactById[id];
   }
 
-  public async getAll(): Promise<Contact[]> {
-    return [ {} as Contact ];
+  public getAll(): Contact[] {
+    return Object.keys(this.contactById).map((contactId) => this.contactById[contactId]);
   }
 }
