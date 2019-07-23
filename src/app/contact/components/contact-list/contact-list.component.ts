@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../../types/contact.type';
 
 @Component({
@@ -9,19 +9,23 @@ import { Contact } from '../../types/contact.type';
 export class ContactListComponent {
   @Input() public contacts: Contact[];
 
+  @Output() public click: EventEmitter<Contact> = new EventEmitter();
+  @Output() public delete: EventEmitter<Contact> = new EventEmitter();
+  @Output() public edit: EventEmitter<Contact> = new EventEmitter();
+
   public trackById(_: number, contact: Contact) {
     return contact.id;
   }
 
   public handleContactClick(contact: Contact) {
-    console.log('click', contact);
+    this.click.emit(contact);
   }
 
   public handleContactDelete(contact: Contact) {
-    console.log('delete', contact);
+    this.delete.emit(contact);
   }
 
   public handleContactEdit(contact: Contact) {
-    console.log('edit', contact);
+    this.edit.emit(contact);
   }
 }

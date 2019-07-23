@@ -10,7 +10,7 @@ const routes: Routes = [
     component: ContactListPageComponent
   } as Route,
   {
-    path: 'contacts/create/:id',
+    path: 'contacts/create',
     component: ContactCreatePageComponent
   } as Route,
   {

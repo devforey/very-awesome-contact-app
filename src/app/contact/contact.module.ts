@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -23,7 +23,7 @@ import { ContactSearchComponent } from './components/contact-search/contact-sear
     ContactListItemComponent,
     ContactSearchComponent
   ],
-  imports: [ CommonModule, ReactiveFormsModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
+  imports: [ CommonModule, FormsModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
 })
 export class ContactModule {
   public static forRoot(): ModuleWithProviders {

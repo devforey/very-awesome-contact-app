@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ContactDataSourceService } from './contact-data-source.service';
 import { Contact } from '../types/contact.type';
 import * as Fuse from 'fuse.js';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +24,25 @@ export class ContactSearchService {
 
   public constructor(private contactDataSource: ContactDataSourceService) {
     this.fillSearchableList(this.contactDataSource.getData());
-    this.contactDataSource.data().subscribe(this.fillSearchableList);
+    this.contactDataSource.data().subscribe(this.fillSearchableList.bind(this));
   }
 
   private fillSearchableList(contactById: { [id: string]: Contact }) {
     this.allContacts = Object.keys(contactById).map((contactId: string) => {
       return contactById[contactId];
     });
-    this.fuse = new Fuse(this.allContacts, this.searchOptions);
+    if (this.fuse) {
+      this.fuse.setCollection(this.allContacts);
+    } else {
+      this.fuse = new Fuse(this.allContacts, this.searchOptions);
+    }
   }
 
   public search(query: string): Contact[] {
     return this.fuse.search(query);
+  }
+
+  public contacts(): Observable<{ [id: string]: Contact }> {
+    return this.contactDataSource.data();
   }
 }

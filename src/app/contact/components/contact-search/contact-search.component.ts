@@ -1,19 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-contact-search',
   templateUrl: './contact-search.component.html',
   styleUrls: [ './contact-search.component.scss' ]
 })
-export class ContactSearchComponent implements OnInit {
-  @Output() public change: EventEmitter<string> = new EventEmitter();
+export class ContactSearchComponent {
+  @Input() public query: string = '';
+  @Output() public queryChange: EventEmitter<string> = new EventEmitter();
 
-  public queryFormControl: FormControl = new FormControl('');
-
-  public ngOnInit() {
-    this.queryFormControl.valueChanges.subscribe((value) => {
-      this.change.emit(value);
-    });
+  public handleChange(query: string) {
+    this.queryChange.emit(query);
   }
 }

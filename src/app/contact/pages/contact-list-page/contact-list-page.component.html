@@ -1,6 +1,23 @@
 <app-page>
   <div class="container">
-    <app-contact-search (change)="handleSearch($event)"></app-contact-search>
-    <app-contact-list [contacts]="contacts"></app-contact-list>
+    <div class="d-flex flex-row mt-3 justify-content-between">
+      <div class="search-input-wrapper w-50">
+        <app-contact-search [(query)]="query" (queryChange)="handleSearch($event)"></app-contact-search>
+      </div>
+      <button [routerLink]="['create']" type="button" class="btn btn-success">
+          <fa-icon [icon]="['fas', 'plus']" class="mr-2"></fa-icon>
+        New Contact
+      </button>
+    </div>
+    <app-contact-list *ngIf="contacts && contacts.length > 0; else noContacts" [contacts]="contacts"
+      (edit)="handleEdit($event)" (delete)="handleDelete($event)">
+    </app-contact-list>
+
+    <ng-template #noContacts>
+      <div class="alert alert-info mt-3" role="alert">
+        <fa-icon [icon]="['fas', 'info-circle']" class="mr-2"></fa-icon>
+        You have no contacts currently.
+      </div>
+    </ng-template>
   </div>
 </app-page>
