@@ -7,10 +7,11 @@ import { ContactSearchService } from './services/contact-search.service';
 import { ContactListPageComponent } from './pages/contact-list-page/contact-list-page.component';
 import { ContactCreatePageComponent } from './pages/contact-create-page/contact-create-page.component';
 import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit-page.component';
+import { PageModule } from '../page/page.module';
 
 @NgModule({
   declarations: [ ContactListPageComponent, ContactCreatePageComponent, ContactEditPageComponent ],
-  imports: [ CommonModule, ContactRoutingModule ]
+  imports: [ CommonModule, PageModule, ContactRoutingModule ]
 })
 export class ContactModule {
   public static forRoot(): ModuleWithProviders {
