@@ -1,0 +1,12 @@
+<div class="card w-100 my-3">
+  <ul class="list-group list-group-flush contact-list">
+    <li *ngFor="let contact of contacts; trackBy: trackById;"
+        class="list-group-item p-0">
+      <app-contact-list-item [contact]="contact"
+        (click)="handleContactClick($event)"
+        (delete)="handleContactDelete($event)"
+        (edit)="handleContactEdit($event)">
+      </app-contact-list-item>
+    </li>
+  </ul>
+</div>
