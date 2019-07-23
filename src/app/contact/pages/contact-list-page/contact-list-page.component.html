@@ -1,5 +1,6 @@
 <app-page>
   <div class="container">
+    <app-contact-search (change)="handleSearch($event)"></app-contact-search>
     <app-contact-list [contacts]="contacts"></app-contact-list>
   </div>
 </app-page>

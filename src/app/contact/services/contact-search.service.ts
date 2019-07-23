@@ -22,13 +22,15 @@ export class ContactSearchService {
   };
 
   public constructor(private contactDataSource: ContactDataSourceService) {
-    this.contactDataSource.data().subscribe((contactById: { [id: string]: Contact }) => {
-      this.allContacts = Object.keys(contactById).map((contactId: string) => {
-        return contactById[contactId];
-      });
+    this.fillSearchableList(this.contactDataSource.getData());
+    this.contactDataSource.data().subscribe(this.fillSearchableList);
+  }
 
-      this.fuse = new Fuse(this.allContacts, this.searchOptions);
+  private fillSearchableList(contactById: { [id: string]: Contact }) {
+    this.allContacts = Object.keys(contactById).map((contactId: string) => {
+      return contactById[contactId];
     });
+    this.fuse = new Fuse(this.allContacts, this.searchOptions);
   }
 
   public search(query: string): Contact[] {

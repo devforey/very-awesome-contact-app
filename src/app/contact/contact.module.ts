@@ -1,4 +1,5 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -11,6 +12,7 @@ import { ContactEditPageComponent } from './pages/contact-edit-page/contact-edit
 import { PageModule } from '../page/page.module';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
+import { ContactSearchComponent } from './components/contact-search/contact-search.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,10 @@ import { ContactListItemComponent } from './components/contact-list-item/contact
     ContactCreatePageComponent,
     ContactEditPageComponent,
     ContactListComponent,
-    ContactListItemComponent
+    ContactListItemComponent,
+    ContactSearchComponent
   ],
-  imports: [ CommonModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
+  imports: [ CommonModule, ReactiveFormsModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
 })
 export class ContactModule {
   public static forRoot(): ModuleWithProviders {

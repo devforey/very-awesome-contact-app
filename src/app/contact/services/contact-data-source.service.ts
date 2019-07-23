@@ -18,6 +18,10 @@ export class ContactDataSourceService {
     return this.localStorageService.observe(ContactDataSourceService.LOCAL_KEY_CONTACTS);
   }
 
+  public getData(): { [id: string]: Contact } {
+    return this.contactById;
+  }
+
   public create({ name, phoneNumber, email }): Contact {
     const toCreate: Contact = { name, phoneNumber, email, id: this.createId() };
     const newContacts: { [id: string]: Contact } = { ...this.contactById, [toCreate.id]: toCreate };
