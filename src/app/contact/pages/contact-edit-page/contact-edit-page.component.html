@@ -1,5 +1,5 @@
 <app-page>
   <div class="container pt-3">
-    <app-contact-form></app-contact-form>
+    <app-contact-form (submit)="handleSubmit($event)" [contact]="contact"></app-contact-form>
   </div>
 </app-page>
