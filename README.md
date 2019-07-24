@@ -2,9 +2,17 @@
 
 The code that powers this very awesome contact app! This is for an job interview exam. Please proceed with caution.
 
-## Development server
+## Development
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Clone the repository `git clone git@github.com:devforey/very-awesome-contact-app.git`
+- `cd` into directory `cd very-awesome-contact-app`
+- Install dependencies `npm install`
+- Start the client `ng serve`
+- Open the site `http://localhost:4200`
+
+## ... or just view the app online
+
+- Open the site `http://...`
 
 ## Build
 
