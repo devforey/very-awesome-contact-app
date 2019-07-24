@@ -12,7 +12,7 @@ The code that powers this very awesome contact app! This is for an job interview
 
 ## ... or just view the app online
 
-- Open the site `http://...`
+- Open the site `https://abrasive-sock.surge.sh`
 
 ## Build
 
