@@ -8,11 +8,11 @@ The code that powers this very awesome contact app! This is for an job interview
 - `cd` into directory `cd very-awesome-contact-app`
 - Install dependencies `npm install`
 - Start the client `ng serve`
-- Open the (site)[http://localhost:4200]
+- Open the [site](http://localhost:4200)
 
 ## ... or just view the app online
 
-- Open the (site)[https://abrasive-sock.surge.sh]
+- Open the [site](https://abrasive-sock.surge.sh)
 
 ## Build
 
