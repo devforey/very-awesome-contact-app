@@ -15,4 +15,8 @@ export class ContactCreatePageComponent {
     this.contactDataSource.create(contact);
     this.router.navigateByUrl('contacts');
   }
+
+  public handleCancel() {
+    this.router.navigateByUrl('contacts');
+  }
 }

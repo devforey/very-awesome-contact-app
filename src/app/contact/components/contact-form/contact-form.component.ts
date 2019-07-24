@@ -10,6 +10,7 @@ export class ContactFormComponent implements OnInit {
   @Input() public contact: Contact;
 
   @Output() public submit: EventEmitter<Contact> = new EventEmitter();
+  @Output() public cancel: EventEmitter<void> = new EventEmitter();
 
   public ngOnInit() {
     if (this.contact) {
@@ -21,5 +22,9 @@ export class ContactFormComponent implements OnInit {
 
   public handleSubmit() {
     this.submit.emit(this.contact);
+  }
+
+  public handleCancel() {
+    this.cancel.emit();
   }
 }

@@ -32,4 +32,8 @@ export class ContactEditPageComponent implements OnInit {
     this.contactDataSource.edit(contact);
     this.router.navigateByUrl('contacts');
   }
+
+  public handleCancel() {
+    this.router.navigateByUrl('contacts');
+  }
 }
