@@ -14,7 +14,7 @@ export class ContactSearchService {
 
   private searchOptions: Fuse.FuseOptions<Contact> = {
     shouldSort: true,
-    threshold: 0.6,
+    threshold: 0,
     location: 0,
     distance: 0,
     maxPatternLength: 32,
