@@ -11,6 +11,8 @@ import { Contact } from '../../types/contact.type';
 })
 export class ContactEditPageComponent implements OnInit {
   public contact: Contact = {} as Contact;
+  public emails: string[];
+  public phoneNumbers: string[];
 
   public constructor(
     private contactDataSource: ContactDataSourceService,
@@ -19,13 +21,27 @@ export class ContactEditPageComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
-    const params: Params = this.activatedRoute.snapshot.params;
-    if (!params || !params.id) {
-      this.router.navigateByUrl('contacts');
+    this.contact = this.getContact();
+
+    if (!this.contact) {
       return;
     }
 
-    this.contact = this.contactDataSource.getOne(params.id);
+    const onlyOtherEmails = (email) => email !== this.contact.email;
+    const onlyOtherPhoneNumbers = (phoneNumber) => phoneNumber !== this.contact.phoneNumber;
+
+    this.emails = this.contactDataSource.getEmails().filter(onlyOtherEmails);
+    this.phoneNumbers = this.contactDataSource.getPhoneNumbers().filter(onlyOtherPhoneNumbers);
+  }
+
+  private getContact(): Contact | undefined {
+    const params: Params = this.activatedRoute.snapshot.params;
+    if (!params || !params.id) {
+      this.router.navigateByUrl('contacts');
+      return undefined;
+    }
+
+    return this.contactDataSource.getOne(params.id);
   }
 
   public handleSubmit(contact: Contact) {

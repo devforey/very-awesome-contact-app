@@ -22,6 +22,14 @@ export class ContactDataSourceService {
     return this.contactById;
   }
 
+  public getEmails(): string[] {
+    return Object.keys(this.contactById).map((key) => this.contactById[key].email);
+  }
+
+  public getPhoneNumbers(): string[] {
+    return Object.keys(this.contactById).map((key) => this.contactById[key].phoneNumber);
+  }
+
   public create({ name, phoneNumber, email }): Contact {
     const toCreate: Contact = { name, phoneNumber, email, id: this.createId() };
     const newContacts: { [id: string]: Contact } = { ...this.contactById, [toCreate.id]: toCreate };

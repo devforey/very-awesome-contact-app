@@ -14,6 +14,7 @@ import { ContactListComponent } from './components/contact-list/contact-list.com
 import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
 import { ContactSearchComponent } from './components/contact-search/contact-search.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { UniqueDirective } from './directives/unique.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     ContactListComponent,
     ContactListItemComponent,
     ContactSearchComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    UniqueDirective
   ],
   imports: [ CommonModule, FormsModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
 })

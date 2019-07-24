@@ -12,6 +12,9 @@ export class ContactFormComponent implements OnInit {
   @Output() public submit: EventEmitter<Contact> = new EventEmitter();
   @Output() public cancel: EventEmitter<void> = new EventEmitter();
 
+  @Input() public emails: string[] = [];
+  @Input() public phoneNumbers: string[] = [];
+
   public ngOnInit() {
     if (this.contact) {
       return;
