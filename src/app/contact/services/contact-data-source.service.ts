@@ -12,7 +12,11 @@ export class ContactDataSourceService {
 
   @LocalStorage(ContactDataSourceService.LOCAL_KEY_CONTACTS) private contactById: { [id: string]: Contact };
 
-  public constructor(private localStorageService: LocalStorageService) {}
+  public constructor(private localStorageService: LocalStorageService) {
+    if (!this.contactById) {
+      this.contactById = {};
+    }
+  }
 
   public data(): Observable<{ [id: string]: Contact }> {
     return this.localStorageService.observe(ContactDataSourceService.LOCAL_KEY_CONTACTS);
