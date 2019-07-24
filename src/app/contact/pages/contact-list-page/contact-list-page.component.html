@@ -1,7 +1,7 @@
 <app-page>
   <div class="d-flex flex-row mt-3 justify-content-between">
     <div class="search-input-wrapper w-50">
-      <app-contact-search [(query)]="query" (queryChange)="handleSearch($event)"></app-contact-search>
+      <app-contact-search [(query)]="query" (queryChange)="handleSearch()"></app-contact-search>
     </div>
     <button [routerLink]="['create']" type="button" class="btn btn-success">
         <fa-icon [icon]="['fas', 'plus']" class="mr-2"></fa-icon>
