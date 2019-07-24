@@ -13,6 +13,7 @@ import { PageModule } from '../page/page.module';
 import { ContactListComponent } from './components/contact-list/contact-list.component';
 import { ContactListItemComponent } from './components/contact-list-item/contact-list-item.component';
 import { ContactSearchComponent } from './components/contact-search/contact-search.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactSearchComponent } from './components/contact-search/contact-sear
     ContactEditPageComponent,
     ContactListComponent,
     ContactListItemComponent,
-    ContactSearchComponent
+    ContactSearchComponent,
+    ContactFormComponent
   ],
   imports: [ CommonModule, FormsModule, PageModule, ContactRoutingModule, FontAwesomeModule ]
 })

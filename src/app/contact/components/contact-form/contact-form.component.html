@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+    <form #contactForm="ngForm" (ngSubmit)="handleSubmit()">
+      <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label label-required text-right">Full Name</label>
+        <div class="col-sm-10">
+          <input type="name" class="form-control" id="inputName" placeholder="Full Name" required
+            [(ngModel)]="contact.name" #name="ngModel" name="name">
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback d-block">
+            <div *ngIf="name.errors.required">
+              Name is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label label-required text-right">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email" required
+          [(ngModel)]="contact.email" #email="ngModel" name="email">
+
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="invalid-feedback d-block">
+            <div *ngIf="email.errors.required">
+              Email is required.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPhone" class="col-sm-2 col-form-label label-required text-right">Telephone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPhone" placeholder="Telephone" required
+          [(ngModel)]="contact.phoneNumber" #phoneNumber="ngModel" name="phoneNumber">
+          <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="invalid-feedback d-block">
+            <div *ngIf="phoneNumber.errors.required">
+              Phone number is required.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex w-100 flex-row justify-content-end" role="group" aria-label="Card actions">
+        <button type="button" class="btn btn-light text-danger mr-2">
+          <fa-icon [icon]="['fas', 'times']" class="mr-2"></fa-icon>
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="!contactForm.form.valid">
+          <fa-icon [icon]="['far', 'save']" class="mr-2"></fa-icon>
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
