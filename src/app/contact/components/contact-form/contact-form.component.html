@@ -2,7 +2,7 @@
   <div class="card-body">
     <form #contactForm="ngForm" (ngSubmit)="handleSubmit()">
       <div class="form-group row">
-        <label for="inputName" class="col-sm-2 col-form-label label-required text-right">Full Name</label>
+        <label for="inputName" class="col-sm-2 col-form-label label-required text-md-right">Full Name</label>
         <div class="col-sm-10">
           <input type="name" class="form-control" id="inputName" placeholder="Full Name" required
             [(ngModel)]="contact.name" #name="ngModel" name="name">
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputEmail" class="col-sm-2 col-form-label label-required text-right">Email</label>
+        <label for="inputEmail" class="col-sm-2 col-form-label label-required text-md-right">Email</label>
         <div class="col-sm-10">
           <input type="email" class="form-control" id="inputEmail" placeholder="Email" required email [appUnique]="emails"
           [(ngModel)]="contact.email" #email="ngModel" name="email">
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputPhone" class="col-sm-2 col-form-label label-required text-right">Telephone</label>
+        <label for="inputPhone" class="col-sm-2 col-form-label label-required text-md-right">Telephone</label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="inputPhone" placeholder="Telephone" required pattern="[0-9]+" [appUnique]="phoneNumbers"
           [(ngModel)]="contact.phoneNumber" #phoneNumber="ngModel" name="phoneNumber">
